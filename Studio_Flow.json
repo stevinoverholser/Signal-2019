@@ -1,1 +1,402 @@
-
+{
+  "description": "A New Flow",
+  "states": [
+    {
+      "type": "InitialState",
+      "name": "Trigger",
+      "properties": {
+        "offset": {
+          "x": -170,
+          "y": 160
+        },
+        "flow_url": "https://webhooks.twilio.com/v1/Accounts/ACd05dd82f4d30f6302e811ce25a00cb2a/Flows/FWe2d97ea0bcebbc94ec9e5f94921d933a"
+      },
+      "transitions": [
+        {
+          "event": "incomingMessage",
+          "conditions": [],
+          "next": "FF47aaf70e466541c0104ea77fd270df47",
+          "uuid": "1da15bf7-3b95-47c6-a4c8-5cc176a4d661"
+        },
+        {
+          "event": "incomingCall",
+          "conditions": [],
+          "next": null,
+          "uuid": "9d2a5b61-b66c-4d94-a4ab-75b1d16d3dc2"
+        },
+        {
+          "event": "incomingRequest",
+          "conditions": [],
+          "next": null,
+          "uuid": "3e568636-3f36-46a6-a049-f0f8cf6181c2"
+        }
+      ],
+      "sid": "FF6be018736d859b4bb353aaadc3eb5202"
+    },
+    {
+      "type": "MessagePrompt",
+      "name": "Get_email",
+      "properties": {
+        "offset": {
+          "x": -140,
+          "y": 530
+        },
+        "body": "What is your primary email address?",
+        "from": "{{flow.channel.address}}",
+        "timeout": 3600,
+        "save_response_as": null,
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "incomingMessage",
+          "conditions": [],
+          "next": "FF3096652500f2209c140429cb225bfd5c",
+          "uuid": "d1bbe34c-a3b5-4ed0-807b-7d79086a9da6"
+        },
+        {
+          "event": "timeout",
+          "conditions": [],
+          "next": null,
+          "uuid": "63003da2-2e94-47e5-b17d-27b24969141c"
+        },
+        {
+          "event": "deliveryFailure",
+          "conditions": [],
+          "next": null,
+          "uuid": "b72e2314-463a-4d39-811b-87db7d39239f"
+        }
+      ],
+      "sid": "FF1f302b572493ad25abe886568d442e6e"
+    },
+    {
+      "type": "MessagePrompt",
+      "name": "Get_name",
+      "properties": {
+        "offset": {
+          "x": -160,
+          "y": 310
+        },
+        "body": "Hello!  Let's get you signed up. What is your first name?",
+        "from": "{{flow.channel.address}}",
+        "timeout": 3600,
+        "save_response_as": null,
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "incomingMessage",
+          "conditions": [],
+          "next": "FF1f302b572493ad25abe886568d442e6e",
+          "uuid": "55ffdf19-2418-4567-a758-e59789c2f173"
+        },
+        {
+          "event": "timeout",
+          "conditions": [],
+          "next": null,
+          "uuid": "99b095be-e4e3-4f6a-a003-2f0c48aff807"
+        },
+        {
+          "event": "deliveryFailure",
+          "conditions": [],
+          "next": null,
+          "uuid": "52192644-8359-4357-8fae-4baf7401f9cc"
+        }
+      ],
+      "sid": "FF47aaf70e466541c0104ea77fd270df47"
+    },
+    {
+      "type": "MessagePrompt",
+      "name": "Double_opt_int",
+      "properties": {
+        "offset": {
+          "x": -610,
+          "y": 780
+        },
+        "body": "Reply \"Yes\" to confirm your email address is \"{{widgets.Get_email.inbound.Body}} \" and to opt in to our newsletter.",
+        "from": "{{flow.channel.address}}",
+        "timeout": 3600,
+        "save_response_as": null,
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "incomingMessage",
+          "conditions": [],
+          "next": "FF1c1b70f48923351f14e026377cb4537a",
+          "uuid": "bff0c75d-43ac-4461-bb34-5fd6d81919b9"
+        },
+        {
+          "event": "timeout",
+          "conditions": [],
+          "next": null,
+          "uuid": "a0672abe-324e-422f-8302-e919ee3df3ae"
+        },
+        {
+          "event": "deliveryFailure",
+          "conditions": [],
+          "next": null,
+          "uuid": "10892155-2de8-4e6d-b10e-1f61d45e1dc0"
+        }
+      ],
+      "sid": "FFa41c93b0639ea14e57514191f307f9e5"
+    },
+    {
+      "type": "Branch",
+      "name": "Confirm_email",
+      "properties": {
+        "offset": {
+          "x": -100,
+          "y": 1020
+        },
+        "input": "{{widgets.Double_opt_int.inbound.Body}}"
+      },
+      "transitions": [
+        {
+          "event": "noMatch",
+          "conditions": [],
+          "next": "FFaddc135d4fca7f7b6c690a9c155124d8",
+          "uuid": "569ff25b-aabc-40e7-a515-62c1a97b7dfc"
+        },
+        {
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value equal_to {{Get_email.inbound.Body}}",
+              "type": "matches_any_of",
+              "arguments": [
+                "{{widgets.Double_opt_int.inbound.Body}}"
+              ],
+              "value": "y, Yes, yes, YES"
+            }
+          ],
+          "next": "FF98f4ea36cc1f5e09863f3383ff0116cc",
+          "uuid": "2a08cd0b-2046-46c1-a608-9612e44066a4"
+        }
+      ],
+      "sid": "FF1c1b70f48923351f14e026377cb4537a"
+    },
+    {
+      "type": "Message",
+      "name": "send_message_2",
+      "properties": {
+        "offset": {
+          "x": -400,
+          "y": 1190
+        },
+        "body": "Sorry to hear that, let us know if you change your mind!",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "sent",
+          "conditions": [],
+          "next": null,
+          "uuid": "0c75d576-1e00-42ce-b0eb-dfaefcd18b0f"
+        },
+        {
+          "event": "failed",
+          "conditions": [],
+          "next": null,
+          "uuid": "ca984b8b-ef5f-4f8c-a867-b58c1a1679df"
+        }
+      ],
+      "sid": "FFaddc135d4fca7f7b6c690a9c155124d8"
+    },
+    {
+      "type": "Function",
+      "name": "Send_Welcome_email",
+      "properties": {
+        "offset": {
+          "x": 340,
+          "y": 1200
+        },
+        "url": "https://auburn-shrimp-1517.twil.io/SG_Mail_Send",
+        "timeout": null,
+        "parameters": [
+          {
+            "key": "fname",
+            "value": "{{widgets.Get_name.inbound.Body}}"
+          },
+          {
+            "key": "email",
+            "value": "{{widgets.Get_email.inbound.Body}}"
+          },
+          {
+            "key": "pnumber",
+            "value": "{{trigger.message.From}}"
+          }
+        ]
+      },
+      "transitions": [
+        {
+          "event": "success",
+          "conditions": [],
+          "next": "FF4f4f2bf0abd75d8506f14976c8efe65a",
+          "uuid": "ed78f502-bfd6-468a-9e0a-add0dfa42203"
+        },
+        {
+          "event": "fail",
+          "conditions": [],
+          "next": null,
+          "uuid": "4b993c34-2e8e-4b9b-976e-28dbdb6e2f26"
+        }
+      ],
+      "sid": "FF98f4ea36cc1f5e09863f3383ff0116cc"
+    },
+    {
+      "type": "Message",
+      "name": "Message_Delivered",
+      "properties": {
+        "offset": {
+          "x": 550,
+          "y": 1440
+        },
+        "body": "We sent you an email, thanks again for your interest!",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "sent",
+          "conditions": [],
+          "next": "FF40b6d30110421e76d3aa08ddd67f85df",
+          "uuid": "e7029d88-1a0b-4a22-8dca-81e7cb39c8d9"
+        },
+        {
+          "event": "failed",
+          "conditions": [],
+          "next": "FF40b6d30110421e76d3aa08ddd67f85df",
+          "uuid": "f91235ce-eacf-457b-b73f-665332eae0a6"
+        }
+      ],
+      "sid": "FF4f4f2bf0abd75d8506f14976c8efe65a"
+    },
+    {
+      "type": "Function",
+      "name": "add_to_contacts",
+      "properties": {
+        "offset": {
+          "x": 310,
+          "y": 1660
+        },
+        "url": "https://mint-lion-6574.twil.io/add_to_contacts",
+        "timeout": null,
+        "parameters": [
+          {
+            "key": "pnumber",
+            "value": "{{trigger.message.From}}"
+          },
+          {
+            "key": "email",
+            "value": "{{widgets.Get_email.inbound.Body}}"
+          },
+          {
+            "key": "fname",
+            "value": "{{widgets.Get_name.inbound.Body}}"
+          }
+        ]
+      },
+      "transitions": [
+        {
+          "event": "success",
+          "conditions": [],
+          "next": null,
+          "uuid": "a0e0dbf9-5f99-4b3c-9cfc-7bcbd09171d6"
+        },
+        {
+          "event": "fail",
+          "conditions": [],
+          "next": null,
+          "uuid": "e639bc9e-44bd-4639-9c8b-1307877375bf"
+        }
+      ],
+      "sid": "FF40b6d30110421e76d3aa08ddd67f85df"
+    },
+    {
+      "type": "Branch",
+      "name": "email_regex",
+      "properties": {
+        "offset": {
+          "x": -70,
+          "y": 760
+        },
+        "input": "{{widgets.Get_email.inbound.Body}}"
+      },
+      "transitions": [
+        {
+          "event": "noMatch",
+          "conditions": [],
+          "next": "FF80e443be6bb9ba68b4a2d9fedb5ed95f",
+          "uuid": "6c50af69-793b-446d-8e15-f393736edea2"
+        },
+        {
+          "event": "match",
+          "conditions": [
+            {
+              "friendly_name": "If value regex \\b[a-zA-Z0-9!#$%&'*+-\\/=?^_`.{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\\b",
+              "type": "regex",
+              "arguments": [
+                "{{widgets.Get_email.inbound.Body}}"
+              ],
+              "value": "\\b[a-zA-Z0-9!#$%&'*+-\\/=?^_`.{|}~]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\\b"
+            }
+          ],
+          "next": "FFa41c93b0639ea14e57514191f307f9e5",
+          "uuid": "e0e5805b-61b2-4073-851f-e884f86c8352"
+        }
+      ],
+      "sid": "FF3096652500f2209c140429cb225bfd5c"
+    },
+    {
+      "type": "Message",
+      "name": "invalid_email",
+      "properties": {
+        "offset": {
+          "x": 581,
+          "y": 1002
+        },
+        "body": "It looks like this email is invalid, please try again.",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "media_url": null,
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "attributes": null
+      },
+      "transitions": [
+        {
+          "event": "sent",
+          "conditions": [],
+          "next": null,
+          "uuid": "b1bad0e1-072e-4ec9-a322-94d68e10383b"
+        },
+        {
+          "event": "failed",
+          "conditions": [],
+          "next": null,
+          "uuid": "e21b66c2-a888-4612-9044-16569bc3d4cf"
+        }
+      ],
+      "sid": "FF80e443be6bb9ba68b4a2d9fedb5ed95f"
+    }
+  ]
+}
