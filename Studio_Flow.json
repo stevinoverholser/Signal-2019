@@ -9,26 +9,26 @@
           "x": -170,
           "y": 160
         },
-        "flow_url": "https://webhooks.twilio.com/v1/Accounts/ACd05dd82f4d30f6302e811ce25a00cb2a/Flows/FWe2d97ea0bcebbc94ec9e5f94921d933a"
+        "flow_url": "https://webhooks.twilio.com/v1/Accounts/ACc1db71e975e8feb542af33cdf966ec80/Flows/FW4f6e8bd7e1ef8d8cef5628cd6c2706dd"
       },
       "transitions": [
         {
           "event": "incomingMessage",
           "conditions": [],
           "next": "FF47aaf70e466541c0104ea77fd270df47",
-          "uuid": "1da15bf7-3b95-47c6-a4c8-5cc176a4d661"
+          "uuid": "9334ef44-b669-48c1-938f-97812faa8591"
         },
         {
           "event": "incomingCall",
           "conditions": [],
           "next": null,
-          "uuid": "9d2a5b61-b66c-4d94-a4ab-75b1d16d3dc2"
+          "uuid": "20e3d86c-1f3e-4dc4-922f-1e7195975bd3"
         },
         {
           "event": "incomingRequest",
           "conditions": [],
           "next": null,
-          "uuid": "3e568636-3f36-46a6-a049-f0f8cf6181c2"
+          "uuid": "e464caae-9c44-4d08-87da-08b1b2a9e6eb"
         }
       ],
       "sid": "FF6be018736d859b4bb353aaadc3eb5202"
@@ -55,19 +55,19 @@
           "event": "incomingMessage",
           "conditions": [],
           "next": "FF3096652500f2209c140429cb225bfd5c",
-          "uuid": "d1bbe34c-a3b5-4ed0-807b-7d79086a9da6"
+          "uuid": "a7ad8784-e53e-4df0-af93-c834f356f822"
         },
         {
           "event": "timeout",
           "conditions": [],
           "next": null,
-          "uuid": "63003da2-2e94-47e5-b17d-27b24969141c"
+          "uuid": "5d736ba2-1cd2-42e9-9364-55b470448084"
         },
         {
           "event": "deliveryFailure",
           "conditions": [],
           "next": null,
-          "uuid": "b72e2314-463a-4d39-811b-87db7d39239f"
+          "uuid": "7fe65430-ea9d-4c32-b428-4cc3f0e7548a"
         }
       ],
       "sid": "FF1f302b572493ad25abe886568d442e6e"
@@ -94,19 +94,19 @@
           "event": "incomingMessage",
           "conditions": [],
           "next": "FF1f302b572493ad25abe886568d442e6e",
-          "uuid": "55ffdf19-2418-4567-a758-e59789c2f173"
+          "uuid": "821b7bdb-9ab8-4748-b614-7a9482f98950"
         },
         {
           "event": "timeout",
           "conditions": [],
           "next": null,
-          "uuid": "99b095be-e4e3-4f6a-a003-2f0c48aff807"
+          "uuid": "a827fdb8-6c4d-403a-aee7-296823bf3cea"
         },
         {
           "event": "deliveryFailure",
           "conditions": [],
           "next": null,
-          "uuid": "52192644-8359-4357-8fae-4baf7401f9cc"
+          "uuid": "85168531-9e36-4f9e-aec6-f23215bfe97e"
         }
       ],
       "sid": "FF47aaf70e466541c0104ea77fd270df47"
@@ -116,8 +116,8 @@
       "name": "Double_opt_int",
       "properties": {
         "offset": {
-          "x": -610,
-          "y": 780
+          "x": 210,
+          "y": 1020
         },
         "body": "Reply \"Yes\" to confirm your email address is \"{{widgets.Get_email.inbound.Body}} \" and to opt in to our newsletter.",
         "from": "{{flow.channel.address}}",
@@ -133,19 +133,19 @@
           "event": "incomingMessage",
           "conditions": [],
           "next": "FF1c1b70f48923351f14e026377cb4537a",
-          "uuid": "bff0c75d-43ac-4461-bb34-5fd6d81919b9"
+          "uuid": "b9b709dd-4542-4eee-a9e9-bd9aeda8c773"
         },
         {
           "event": "timeout",
           "conditions": [],
           "next": null,
-          "uuid": "a0672abe-324e-422f-8302-e919ee3df3ae"
+          "uuid": "2f235266-c5d3-4c6e-9c1a-84f90f8e1d4d"
         },
         {
           "event": "deliveryFailure",
           "conditions": [],
           "next": null,
-          "uuid": "10892155-2de8-4e6d-b10e-1f61d45e1dc0"
+          "uuid": "9629ad8f-4a11-42c1-a570-0e73a1bbff8e"
         }
       ],
       "sid": "FFa41c93b0639ea14e57514191f307f9e5"
@@ -155,8 +155,8 @@
       "name": "Confirm_email",
       "properties": {
         "offset": {
-          "x": -100,
-          "y": 1020
+          "x": 230,
+          "y": 1290
         },
         "input": "{{widgets.Double_opt_int.inbound.Body}}"
       },
@@ -165,7 +165,7 @@
           "event": "noMatch",
           "conditions": [],
           "next": "FFaddc135d4fca7f7b6c690a9c155124d8",
-          "uuid": "569ff25b-aabc-40e7-a515-62c1a97b7dfc"
+          "uuid": "fb2c4471-ed4c-4ea2-ad52-76078cf09131"
         },
         {
           "event": "match",
@@ -180,7 +180,7 @@
             }
           ],
           "next": "FF98f4ea36cc1f5e09863f3383ff0116cc",
-          "uuid": "2a08cd0b-2046-46c1-a608-9612e44066a4"
+          "uuid": "899b2cf1-0352-4035-9a7e-8b24982de408"
         }
       ],
       "sid": "FF1c1b70f48923351f14e026377cb4537a"
@@ -190,8 +190,8 @@
       "name": "send_message_2",
       "properties": {
         "offset": {
-          "x": -400,
-          "y": 1190
+          "x": 130,
+          "y": 1550
         },
         "body": "Sorry to hear that, let us know if you change your mind!",
         "from": "{{flow.channel.address}}",
@@ -206,13 +206,13 @@
           "event": "sent",
           "conditions": [],
           "next": null,
-          "uuid": "0c75d576-1e00-42ce-b0eb-dfaefcd18b0f"
+          "uuid": "0c30fa42-f69b-4d7a-8c9e-b4db9f696490"
         },
         {
           "event": "failed",
           "conditions": [],
           "next": null,
-          "uuid": "ca984b8b-ef5f-4f8c-a867-b58c1a1679df"
+          "uuid": "ef2a9b2a-372f-4c0a-a535-a199e6ce03f2"
         }
       ],
       "sid": "FFaddc135d4fca7f7b6c690a9c155124d8"
@@ -222,8 +222,8 @@
       "name": "Send_Welcome_email",
       "properties": {
         "offset": {
-          "x": 340,
-          "y": 1200
+          "x": 490,
+          "y": 1540
         },
         "url": "https://auburn-shrimp-1517.twil.io/SG_Mail_Send",
         "timeout": null,
@@ -247,13 +247,13 @@
           "event": "success",
           "conditions": [],
           "next": "FF4f4f2bf0abd75d8506f14976c8efe65a",
-          "uuid": "ed78f502-bfd6-468a-9e0a-add0dfa42203"
+          "uuid": "5c7a775e-f29c-4aa6-80db-d5f4c5cba6bf"
         },
         {
           "event": "fail",
           "conditions": [],
           "next": null,
-          "uuid": "4b993c34-2e8e-4b9b-976e-28dbdb6e2f26"
+          "uuid": "0546e216-d929-4fe5-a64a-65f909aa5b97"
         }
       ],
       "sid": "FF98f4ea36cc1f5e09863f3383ff0116cc"
@@ -263,8 +263,8 @@
       "name": "Message_Delivered",
       "properties": {
         "offset": {
-          "x": 550,
-          "y": 1440
+          "x": 510,
+          "y": 1800
         },
         "body": "We sent you an email, thanks again for your interest!",
         "from": "{{flow.channel.address}}",
@@ -279,13 +279,13 @@
           "event": "sent",
           "conditions": [],
           "next": "FF40b6d30110421e76d3aa08ddd67f85df",
-          "uuid": "e7029d88-1a0b-4a22-8dca-81e7cb39c8d9"
+          "uuid": "a6a2392e-59ce-426a-a310-61ae45e4bee1"
         },
         {
           "event": "failed",
           "conditions": [],
           "next": "FF40b6d30110421e76d3aa08ddd67f85df",
-          "uuid": "f91235ce-eacf-457b-b73f-665332eae0a6"
+          "uuid": "6213347d-2d10-4191-a646-29ffe6831619"
         }
       ],
       "sid": "FF4f4f2bf0abd75d8506f14976c8efe65a"
@@ -295,8 +295,8 @@
       "name": "add_to_contacts",
       "properties": {
         "offset": {
-          "x": 310,
-          "y": 1660
+          "x": 540,
+          "y": 2100
         },
         "url": "https://mint-lion-6574.twil.io/add_to_contacts",
         "timeout": null,
@@ -320,13 +320,13 @@
           "event": "success",
           "conditions": [],
           "next": null,
-          "uuid": "a0e0dbf9-5f99-4b3c-9cfc-7bcbd09171d6"
+          "uuid": "455d1446-b6f6-4151-bed4-5b83b401364d"
         },
         {
           "event": "fail",
           "conditions": [],
           "next": null,
-          "uuid": "e639bc9e-44bd-4639-9c8b-1307877375bf"
+          "uuid": "986b721e-3c12-4583-a8d6-05feeab5eea8"
         }
       ],
       "sid": "FF40b6d30110421e76d3aa08ddd67f85df"
@@ -336,7 +336,7 @@
       "name": "email_regex",
       "properties": {
         "offset": {
-          "x": -70,
+          "x": -120,
           "y": 760
         },
         "input": "{{widgets.Get_email.inbound.Body}}"
@@ -346,7 +346,7 @@
           "event": "noMatch",
           "conditions": [],
           "next": "FF80e443be6bb9ba68b4a2d9fedb5ed95f",
-          "uuid": "6c50af69-793b-446d-8e15-f393736edea2"
+          "uuid": "deb56b74-acd4-4a11-8d54-a4b94551a5ee"
         },
         {
           "event": "match",
@@ -361,7 +361,7 @@
             }
           ],
           "next": "FFa41c93b0639ea14e57514191f307f9e5",
-          "uuid": "e0e5805b-61b2-4073-851f-e884f86c8352"
+          "uuid": "1585ef52-dd49-4def-8e69-70990f8afd50"
         }
       ],
       "sid": "FF3096652500f2209c140429cb225bfd5c"
@@ -371,8 +371,8 @@
       "name": "invalid_email",
       "properties": {
         "offset": {
-          "x": 581,
-          "y": 1002
+          "x": -120,
+          "y": 1030
         },
         "body": "It looks like this email is invalid, please try again.",
         "from": "{{flow.channel.address}}",
@@ -387,13 +387,13 @@
           "event": "sent",
           "conditions": [],
           "next": null,
-          "uuid": "b1bad0e1-072e-4ec9-a322-94d68e10383b"
+          "uuid": "70d91469-60f6-4e40-8f52-5c93e02c53ac"
         },
         {
           "event": "failed",
           "conditions": [],
           "next": null,
-          "uuid": "e21b66c2-a888-4612-9044-16569bc3d4cf"
+          "uuid": "f74f3d6e-85de-4e1c-892f-86ee7e0c99d0"
         }
       ],
       "sid": "FF80e443be6bb9ba68b4a2d9fedb5ed95f"
