@@ -6,7 +6,7 @@ exports.handler = function(context, event, callback) {
     var email = event.email;
     console.log(fname + pnumber);
     var subject = "Twilio app proof of concept";
-    var from = "austin@stevin.world";
+    var from = "austin@rhondajules.com";
     var html = "<h3>Hello " + fname + ", Thanks for signing up!<\/h3> <p><a href=\\\"https:\/\/www.twilio.com\/\\\">Click here to get started<\/a><\/p>";
     var payload = "{\"personalizations\": [{\"to\": [{\"email\": \"" + email + "\", \"name\": \"" + fname + "\"} ], \"subject\": \"" + subject + "\"} ], \"from\": {\"email\": \"" + from + "\"}, \"subject\": \"" + subject + "\", \"content\": [{\"type\": \"text\/html\", \"value\": \""+ html + "\"} ], \"categories\": [\"TwilAPP\"], \"custom_args\": {\"Phonenumber\" : \"" + pnumber + "\"} , \"tracking_settings\": {\"click_tracking\": {\"enable\": true }, \"open_tracking\": {\"enable\": true } } }";
     console.log("Payload: " + payload);
